@@ -11,7 +11,9 @@ jobs:
             
             - name: Initialize python 3.11.5
             - uses: action/setup-python@v4
-            
+              with:
+                python-version: "3.11.5"
+                
             - name: Install Dependencies
             - run: |
                 py -m pip install --upgrade pip
