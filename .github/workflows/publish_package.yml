@@ -16,7 +16,7 @@ jobs:
 
             - name: Install dependencies
               run: |
-                py -m pip install --upgrade pip
+                python -m pip install --upgrade pip
           
             - name: Build binary wheel and a source tarball
               run:  py -m build
