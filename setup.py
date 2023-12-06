@@ -6,5 +6,5 @@ url='#',
 author='auth',
 author_email='author@email.com',
 license='MIT',
-packages=['mypackage'],
+packages=['src'],
 zip_safe=False)
