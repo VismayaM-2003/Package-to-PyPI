@@ -1,0 +1,27 @@
+name: Publish Package into PyPI
+
+on: [push]
+
+jobs:
+    python-packages:
+        - name: Build and Publish python distribution.
+          runs-on: ubuntu-latest
+          steps:
+            - uses: action/ckeckout@v3
+            
+            - name: Initialize python 3.11.5
+            - uses: action/setup-python@v4
+            
+            - name: Install Dependencies
+            - run: |
+                py -m pip install --upgrade pip
+
+            - name: Generating distribution archives
+            - run: py -m build
+
+            - name: Uploading the distribution archives
+            - uses: pypa/gh-action-pypi-publish@release/v1
+              with:
+                username: __token__
+                password: ${{ secrets.test_pypi_password }}
+                repository-url: https://upload.pypi.org/legacy/
